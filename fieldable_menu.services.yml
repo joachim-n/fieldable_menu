@@ -1,0 +1,5 @@
+services:
+  fieldable_menu.route_subscriber:
+    class: Drupal\fieldable_menu\Routing\RouteSubscriber
+    tags:
+      - { name: event_subscriber }
