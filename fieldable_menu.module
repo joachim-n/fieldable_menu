@@ -1,0 +1,30 @@
+<?php
+
+/**
+ * @file
+ * TODO: Enter file description here.
+ */
+
+/**
+ * Implements hook_help().
+ */
+function fieldable_menu_help($route_name, \Drupal\Core\Routing\RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.fieldable_menu':
+      return t("Provides the ability to add fields to menu_item_links. This might be useful for making things like mega menus");
+    // OPTIONAL: Add additional cases for other paths that should display help text.
+  }
+}
+
+/**
+ * Implements hook_entity_type_alter().
+ */
+function fieldable_menu_entity_type_alter(array &$entity_types) {
+  /** @var $entity_types \Drupal\Core\Entity\EntityTypeInterface[] */
+  if ($entity_types['menu_link_content']->getBundleEntityType() == '') {
+    $entity_types['menu_link_content']->set('bundle_entity_type', 'menu');
+    $entity_types['menu_link_content']->set('field_ui_base_route', 'entity.menu.edit_form');
+  }
+}
+
+

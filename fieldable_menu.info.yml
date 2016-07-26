@@ -1,0 +1,4 @@
+name: Fieldable Menus
+type: module
+description: 'Provides ability to add fields to menu item links (think of mega menus etc)'
+core: 8.x
